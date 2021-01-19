@@ -18,14 +18,17 @@
         </div>
     </div>
     <div *ngIf="selectedMovie.Response === 'True'">
-        <div class="row" *ngIf="selectedMovie">
-            <div class="col-md-12">
-            <ul class="list-unstyled">
-                <li>Título do Filme: {{ selectedMovie.Title }}</li>
-                <li>Ano: {{ selectedMovie.Year }}</li>
-                <li>Data de Lançamento: {{ selectedMovie.Released }}</li>
-                <li>Duração: {{ selectedMovie.Runtime }}</li>
-            </ul>
+        <div class="row mt-4" *ngIf="selectedMovie">
+            <div class="col-md-4">
+                <img [src]="selectedMovie.Poster" />
+            </div>
+            <div class="col-md-8">
+                <ul class="list-unstyled">
+                    <li>Título do Filme: {{ selectedMovie.Title }}</li>
+                    <li>Ano: {{ selectedMovie.Year }}</li>
+                    <li>Data de Lançamento: {{ selectedMovie.Released }}</li>
+                    <li>Duração: {{ selectedMovie.Runtime }}</li>
+                </ul>
             </div>
         </div>
     </div>

@@ -3,5 +3,6 @@ export interface Movie {
     Year?: string;
     Released?: string;
     Runtime?: string;
+    Poster?: string;
     Response: string;
 }
