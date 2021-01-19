@@ -28,7 +28,22 @@
                     <li>Ano: {{ selectedMovie.Year }}</li>
                     <li>Data de Lançamento: {{ selectedMovie.Released }}</li>
                     <li>Duração: {{ selectedMovie.Runtime }}</li>
+                    <li>Diretor: {{ selectedMovie.Director }}</li>
                 </ul>
+                <div class="card" style="width: 15rem;">
+                    <div class="card-body">
+                      <h3 class="card-title text-center">Metascore</h3>
+                      <mat-progress-spinner style="margin:0 auto;" [value]="selectedMovie.Metascore" mode="determinate"></mat-progress-spinner>
+                      <h3 class="card-text text-center mt-3">{{ selectedMovie.Metascore }}/100</h3>
+                    </div>
+                </div>
+                <div class="card" style="width: 15rem;">
+                    <div class="card-body">
+                      <h3 class="card-title text-center">Nota IMDb</h3>
+                      <mat-progress-spinner style="margin:0 auto;" [value]="selectedMovie.imdbRating*10" mode="determinate"></mat-progress-spinner>
+                      <h3 class="card-text text-center mt-3">{{ selectedMovie.imdbRating }}/10</h3>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
