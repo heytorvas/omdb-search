@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-8">
+            <!-- <label for="name-movie" class="form-label">Insira o nome do filme</label> -->
+            <input type="text" [(ngModel)]="nameMovie" class="form-control" id="name-movie" placeholder="Star Wars">
+        </div>
+        <div class="col-md-2">
+            <button type="submit" [disabled]="!nameMovie" (click)="btnClicked()" class="btn btn-primary">Pesquisar</button>
+        </div>
+        <div class="col-md-2">
+            <button type="submit" (click)="btnClear()" class="btn btn-secondary">Limpar</button>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <span>Resultados da pesquisa:</span>
+        </div>
+    </div>
+    <div *ngIf="selectedMovie.Response === 'True'">
+        <div class="row" *ngIf="selectedMovie">
+            <div class="col-md-12">
+            <ul class="list-unstyled">
+                <li>Título do Filme: {{ selectedMovie.Title }}</li>
+                <li>Ano: {{ selectedMovie.Year }}</li>
+                <li>Data de Lançamento: {{ selectedMovie.Released }}</li>
+                <li>Duração: {{ selectedMovie.Runtime }}</li>
+            </ul>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="selectedMovie.Response === 'False'">
+        <span>Filme não encontrado!</span>
+    </div>
+</div>
