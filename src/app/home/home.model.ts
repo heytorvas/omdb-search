@@ -5,7 +5,7 @@ export interface Movie {
     Runtime?: string;
     Poster?: string;
     Director?: string;
-    Metascore: string;
+    Metascore?: string;
     imdbRating?: string;
     Response: string;
 }
