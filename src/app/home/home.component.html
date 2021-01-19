@@ -1,13 +1,13 @@
 <div class="container">
-    <div class="row mt-5">
+    <div class="row mt-4">
         <div class="col-md-8">
-            <!-- <label for="name-movie" class="form-label">Insira o nome do filme</label> -->
+            <label for="name-movie" class="form-label">Insira o nome do filme:</label>
             <input type="text" [(ngModel)]="nameMovie" class="form-control" id="name-movie" placeholder="Star Wars">
         </div>
-        <div class="col-md-2">
+        <div class="col-sm-2 btn-margin">
             <button type="submit" [disabled]="!nameMovie" (click)="btnClicked()" class="btn btn-primary">Pesquisar</button>
         </div>
-        <div class="col-md-2">
+        <div class="col-sm-2 btn-margin">
             <button type="submit" (click)="btnClear()" class="btn btn-secondary">Limpar</button>
         </div>
     </div>
@@ -18,36 +18,48 @@
         </div>
     </div>
     <div *ngIf="selectedMovie.Response === 'True'">
-        <div class="row mt-4" *ngIf="selectedMovie">
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <h1>{{ selectedMovie.Title }}</h1>
+                <hr />
+            </div>
+        </div>
+        <div class="row" *ngIf="selectedMovie">
             <div class="col-md-4">
                 <img [src]="selectedMovie.Poster" />
             </div>
             <div class="col-md-8">
                 <ul class="list-unstyled">
-                    <li>Título do Filme: {{ selectedMovie.Title }}</li>
-                    <li>Ano: {{ selectedMovie.Year }}</li>
-                    <li>Data de Lançamento: {{ selectedMovie.Released }}</li>
-                    <li>Duração: {{ selectedMovie.Runtime }}</li>
-                    <li>Diretor: {{ selectedMovie.Director }}</li>
+                    <li><h3><strong>Ano: </strong>{{ selectedMovie.Year }}</h3></li>
+                    <li><h3><strong>Data de Lançamento: </strong>{{ selectedMovie.Released }}</h3></li>
+                    <li><h3><strong>Duração: </strong>{{ selectedMovie.Runtime }}</h3></li>
+                    <li><h3><strong>Diretor: </strong>{{ selectedMovie.Director }}</h3></li>
                 </ul>
-                <div class="card" style="width: 15rem;">
-                    <div class="card-body">
-                      <h3 class="card-title text-center">Metascore</h3>
-                      <mat-progress-spinner style="margin:0 auto;" [value]="selectedMovie.Metascore" mode="determinate"></mat-progress-spinner>
-                      <h3 class="card-text text-center mt-3">{{ selectedMovie.Metascore }}/100</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card" style="width: 15rem;">
+                            <div class="card-body">
+                              <h3 class="card-title text-center"><strong>Metascore</strong></h3>
+                              <mat-progress-spinner style="margin:0 auto;" [value]="selectedMovie.Metascore" mode="determinate"></mat-progress-spinner>
+                              <h3 class="card-text text-center mt-3">{{ selectedMovie.Metascore }}/100</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card" style="width: 15rem;">
+                            <div class="card-body">
+                              <h3 class="card-title text-center"><strong>Nota IMDb</strong></h3>
+                              <mat-progress-spinner style="margin:0 auto;" [value]="selectedMovie.imdbRating*10" mode="determinate"></mat-progress-spinner>
+                              <h3 class="card-text text-center mt-3">{{ selectedMovie.imdbRating }}/10</h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="card" style="width: 15rem;">
-                    <div class="card-body">
-                      <h3 class="card-title text-center">Nota IMDb</h3>
-                      <mat-progress-spinner style="margin:0 auto;" [value]="selectedMovie.imdbRating*10" mode="determinate"></mat-progress-spinner>
-                      <h3 class="card-text text-center mt-3">{{ selectedMovie.imdbRating }}/10</h3>
-                    </div>
-                </div>
+            
             </div>
         </div>
     </div>
-    <div *ngIf="selectedMovie.Response === 'False'">
-        <span>Filme não encontrado!</span>
+    <div class="mt-3" *ngIf="selectedMovie.Response === 'False'">
+        <h3><strong>Filme não encontrado!</strong></h3>
     </div>
 </div>
